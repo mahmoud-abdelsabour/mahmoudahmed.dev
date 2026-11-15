@@ -1,0 +1,85 @@
+[
+  {
+    "slug": "charity-management",
+    "featured": true,
+    "category": "web",
+    "status": "live",
+    "mock": "cases",
+    "mockUrl": "charity.app/cases",
+    "title": { "en": "Charity Management System", "ar": "نظام إدارة الجمعيات الخيرية" },
+    "summary": {
+      "en": "Cases, donations and monthly commitments for a charity in one place, with financial reports rebuilt for speed using SQL-side paging and lean queries.",
+      "ar": "الحالات والتبرعات والالتزامات الشهرية لجمعية خيرية في مكان واحد، مع تقارير مالية أُعيد بناؤها للسرعة باستخدام الترقيم على مستوى SQL واستعلامات خفيفة."
+    },
+    "features": [
+      { "en": "Full aid history per beneficiary", "ar": "سجل مساعدات كامل لكل مستفيد" },
+      { "en": "Role-based access & audit trail", "ar": "صلاحيات حسب الدور وسجل تدقيق" }
+    ],
+    "stack": ["ASP.NET MVC", "EF Core", "SQL Server", "DataTables"],
+    "liveUrl": "",
+    "repoUrl": ""
+  },
+  {
+    "slug": "educonnect",
+    "featured": false,
+    "category": "web",
+    "status": "wip",
+    "mock": "courses",
+    "mockUrl": "educonnect.app/courses",
+    "title": { "en": "EduConnect", "ar": "EduConnect" },
+    "summary": {
+      "en": "Bilingual learning platform for private teachers: courses, students and sessions, in Arabic & English with dark mode.",
+      "ar": "منصة تعليمية ثنائية اللغة للمدرّسين الخصوصيين: الدورات والطلاب والجلسات، بالعربية والإنجليزية مع الوضع الداكن."
+    },
+    "features": [
+      {
+        "en": "Soft delete & audit fields everywhere",
+        "ar": "حذف ناعم وحقول تدقيق في كل مكان"
+      },
+      { "en": "One resource file for EN/AR", "ar": "ملف موارد واحد للعربية والإنجليزية" }
+    ],
+    "stack": ["ASP.NET Core", "EF Core", "SQL Server"],
+    "liveUrl": "",
+    "repoUrl": ""
+  },
+  {
+    "slug": "rms-pos",
+    "featured": false,
+    "category": "dash",
+    "status": "wip",
+    "mock": "pos",
+    "mockUrl": "rms.app/pos",
+    "title": { "en": "RMS · Restaurant POS", "ar": "RMS · نقاط بيع المطاعم" },
+    "summary": {
+      "en": "Cashier, kitchen, inventory and daily sales reports for restaurants & cafés in one dashboard.",
+      "ar": "الكاشير والمطبخ والمخزون وتقارير المبيعات اليومية للمطاعم والمقاهي في لوحة واحدة."
+    },
+    "features": [
+      { "en": "Works on a tablet at the counter", "ar": "يعمل على تابلت عند الكاشير" },
+      { "en": "Pages hidden by role", "ar": "صفحات تُخفى حسب الدور" }
+    ],
+    "stack": ["React", ".NET 10", "PostgreSQL"],
+    "liveUrl": "",
+    "repoUrl": ""
+  },
+  {
+    "slug": "rms-api",
+    "featured": false,
+    "category": "api",
+    "status": "wip",
+    "mock": "api",
+    "mockUrl": "api.rms.app/swagger",
+    "title": { "en": "RMS API", "ar": "RMS API" },
+    "summary": {
+      "en": "REST API with JWT auth and admin-defined roles & page permissions, ready for a future mobile app.",
+      "ar": "واجهة REST بمصادقة JWT وأدوار وصلاحيات صفحات يحدّدها المدير، جاهزة لتطبيق جوال مستقبلاً."
+    },
+    "features": [
+      { "en": "Roles created inside the app", "ar": "أدوار تُنشأ من داخل التطبيق" },
+      { "en": "Swagger docs for every endpoint", "ar": "توثيق Swagger لكل مسار" }
+    ],
+    "stack": [".NET 10 Web API", "JWT", "Swagger"],
+    "liveUrl": "",
+    "repoUrl": ""
+  }
+]

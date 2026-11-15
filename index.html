@@ -3,6 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="color-scheme" content="dark light" />
+    <script>
+      /* Set theme + direction before first paint (no flash) */
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t !== "light") document.documentElement.classList.add("dark");
+        } catch (e) { document.documentElement.classList.add("dark"); }
+        var ar = /^\/ar(\/|$)/.test(location.pathname);
+        document.documentElement.lang = ar ? "ar" : "en";
+        document.documentElement.dir = ar ? "rtl" : "ltr";
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mahmoud Abdelsabour — Software Developer</title>
   </head>

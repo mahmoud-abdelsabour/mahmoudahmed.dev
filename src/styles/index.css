@@ -1,11 +1,155 @@
 @import 'tailwindcss';
+@import './mock.css';
 
-/* Dark mode is class-based: <html class="dark"> */
+/* Dark mode is class-based: <html class="dark">. Dark is the default theme. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Design tokens go here once the Claude Design export is analysed. */
+/* ------------------------------------------------------------------
+   Design tokens — extracted from the Claude Design export (see docs/DESIGN_SPEC.md)
+   Light values on :root, dark values on .dark.
+------------------------------------------------------------------- */
+:root {
+  --bg: #f6f8f8;
+  --surface: #ffffff;
+  --elev: #ffffff;
+  --border: #d9e2e3;
+  --tp: #0d1a1d; /* text primary */
+  --ts: #3d5155; /* text secondary */
+  --tm: #566a6e; /* text muted */
+  --acc: #0d7266;
+  --acch: #0a5c52; /* accent hover */
+  --accfg: #ffffff; /* text on accent */
+  --succ: #15803d;
+  --err: #b91c1c;
+  --acc-soft: rgba(13, 114, 102, 0.09);
+  --grid: rgba(13, 26, 29, 0.08);
+  --sh1: 0 1px 2px rgba(13, 26, 29, 0.06);
+  --sh2: 0 10px 30px -10px rgba(13, 26, 29, 0.18);
+  --sh3: 0 24px 64px -16px rgba(13, 26, 29, 0.25);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0b1215;
+  --surface: #101a1e;
+  --elev: #162328;
+  --border: #22343a;
+  --tp: #e7eff0;
+  --ts: #a6b8bb;
+  --tm: #8297a0;
+  --acc: #2ec4a6;
+  --acch: #5ad6bd;
+  --accfg: #03201a;
+  --succ: #4ade80;
+  --err: #f87171;
+  --acc-soft: rgba(46, 196, 166, 0.12);
+  --grid: rgba(231, 239, 240, 0.07);
+  --sh1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --sh2: 0 10px 30px -8px rgba(0, 0, 0, 0.55);
+  --sh3: 0 24px 64px -12px rgba(0, 0, 0, 0.7);
+  color-scheme: dark;
+}
+
+/* Expose tokens as Tailwind utilities: bg-bg, bg-surface, text-tp, border-border, bg-acc … */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-elev: var(--elev);
+  --color-border: var(--border);
+  --color-tp: var(--tp);
+  --color-ts: var(--ts);
+  --color-tm: var(--tm);
+  --color-acc: var(--acc);
+  --color-acch: var(--acch);
+  --color-accfg: var(--accfg);
+  --color-acc-soft: var(--acc-soft);
+  --color-succ: var(--succ);
+  --color-err: var(--err);
+
+  --shadow-sh1: var(--sh1);
+  --shadow-sh2: var(--sh2);
+  --shadow-sh3: var(--sh3);
+}
+
 @theme {
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --radius-chip: 6px;
+  --radius-btn-sm: 8px;
+  --radius-btn: 10px;
+  --radius-btn-lg: 12px;
+  --radius-card: 16px;
+  --radius-photo: 20px;
+
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1100px;
+
+  --ease-lift: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 84px;
+    background: var(--bg);
+    color: var(--tp);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  html[dir='rtl'] {
+    font-family: var(--font-arabic);
+    line-height: 1.8;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--tp);
+  }
+  [dir='rtl'] :is(h1, h2, h3, h4) {
+    letter-spacing: 0;
+  }
+  :focus-visible {
+    outline: 2px solid var(--acc);
+    outline-offset: 3px;
+  }
+}
+
+/* Type scale from the design (mobile → ≥1024px) */
+@utility display {
+  font-size: 40px;
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  @variant lg {
+    font-size: 60px;
+  }
+}
+@utility h2-size {
+  font-size: 30px;
+  line-height: 1.2;
+  @variant lg {
+    font-size: 40px;
+  }
+}
+@utility lead {
+  font-size: 17px;
+  color: var(--ts);
+  @variant lg {
+    font-size: 19px;
+  }
+}
+@utility eyebrow {
+  font: 500 13px/1.2 var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--acc);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -17,4 +161,23 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Native <select> with a custom chevron (flips in RTL) */
+.select-chevron {
+  appearance: none;
+  padding-inline-end: 40px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--tm) 50%),
+    linear-gradient(135deg, var(--tm) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 21px,
+    calc(100% - 15px) 21px;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+[dir='rtl'] .select-chevron {
+  background-position:
+    20px 21px,
+    25px 21px;
 }

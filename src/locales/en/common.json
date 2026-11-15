@@ -1,0 +1,45 @@
+{
+  "brand": { "first": "Mahmoud", "last": "Abdelsabour" },
+  "nav": {
+    "label": "Primary",
+    "mobileLabel": "Mobile",
+    "services": "Services",
+    "projects": "Projects",
+    "process": "Process",
+    "about": "About",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "home": "Mahmoud Abdelsabour, home",
+    "skip": "Skip to content"
+  },
+  "cta": {
+    "book": "Book a call",
+    "whatsapp": "Chat on WhatsApp",
+    "backHome": "Back to home"
+  },
+  "toggle": {
+    "toArabic": "Switch to Arabic",
+    "toEnglish": "Switch to English",
+    "language": "Language",
+    "theme": "Theme",
+    "switchTheme": "Switch theme",
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "whatsappPrefill": "Hi Mahmoud, I found your website and I'd like to talk about a project.",
+  "whatsappTip": "Chat on WhatsApp",
+  "footer": {
+    "tagline": "Business web apps, built to last.",
+    "cvEn": "CV (English)",
+    "cvAr": "CV (Arabic)",
+    "rights": "© {{year}} Mahmoud Abdelsabour. All rights reserved.",
+    "top": "Back to top",
+    "socials": "Social links"
+  },
+  "home": { "soon": "Sections are being built in Phase 3." },
+  "notFound": {
+    "title": "This page doesn't exist",
+    "text": "The link may be broken or the page was moved. Let's get you back on track."
+  }
+}

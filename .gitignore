@@ -30,3 +30,5 @@ docs/design/
 .env.*
 !.env.example
 .vercel
+
+.playwright-mcp/

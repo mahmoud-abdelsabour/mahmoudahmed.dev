@@ -1,0 +1,26 @@
+[
+  {
+    "name": "charity-management",
+    "description": "Case, donation & commitment tracking for charities",
+    "language": "C#",
+    "color": "#178600"
+  },
+  {
+    "name": "educonnect",
+    "description": "Bilingual learning platform for private teachers",
+    "language": "C#",
+    "color": "#178600"
+  },
+  {
+    "name": "rms-api",
+    "description": "Restaurant POS backend, JWT + page permissions",
+    "language": "C#",
+    "color": "#178600"
+  },
+  {
+    "name": "rms-dashboard",
+    "description": "React dashboard for the RMS restaurant system",
+    "language": "TypeScript",
+    "color": "#3178c6"
+  }
+]

@@ -1,0 +1,192 @@
+{
+  "hero": {
+    "available": "Available for new projects",
+    "eyebrow": "Mahmoud Abdelsabour · Full-stack developer",
+    "titleA": "I build business web apps & dashboards that ",
+    "titleB": "save you time.",
+    "lead": "From the first call to launch, you get a fast, well-built system shaped around how your business actually works, with a working preview every week.",
+    "trustProjects": "[N]+ projects delivered",
+    "trustStack": ".NET & React",
+    "trustReply": "Replies within 24h",
+    "mockAria": "Stylized admin dashboard mockup",
+    "float": "Invoice #1042 synced"
+  },
+  "services": {
+    "eyebrow": "01 · Services",
+    "title": "What I can build for you",
+    "lead": "Four ways I usually help small and medium businesses. Not sure which fits? Tell me the problem and I'll suggest the simplest route.",
+    "get": "What you get",
+    "from": "Starting from",
+    "price": "[PRICE]",
+    "discuss": "Discuss your project",
+    "items": [
+      {
+        "title": "Admin dashboards",
+        "text": "Turn scattered spreadsheets into one dashboard your team actually uses.",
+        "gets": [
+          "Role-based access for each staff member",
+          "Reports & charts you can export",
+          "Arabic & English, light & dark"
+        ]
+      },
+      {
+        "title": "Custom web apps",
+        "text": "Booking, inventory, CRM, or the tool no off-the-shelf product gets right, built for your workflow.",
+        "gets": [
+          "Clear scope & timeline up front",
+          "Works on every screen size",
+          "The source code is yours"
+        ]
+      },
+      {
+        "title": "Bug fixes & new features",
+        "text": "Your .NET or React app is slow or broken? I find the root cause and fix it properly.",
+        "gets": [
+          "Quick diagnosis before any quote",
+          "Real fixes with tests, not patches",
+          "Short written report of every change"
+        ]
+      },
+      {
+        "title": "API integrations",
+        "text": "Connect payment gateways, WhatsApp, SMS or your ERP so data flows without copy-paste.",
+        "gets": [
+          "Payment & messaging gateways",
+          "Secure, documented REST APIs",
+          "Error logging & alerts"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "02 · Projects",
+    "title": "Real systems, used by real teams",
+    "filterLabel": "Filter projects",
+    "filters": { "all": "All", "web": "Web apps", "dash": "Dashboards", "api": "APIs" },
+    "featured": "Featured",
+    "live": "Live",
+    "wip": "In progress",
+    "case": "Read case study",
+    "demo": "Live demo",
+    "github": "Latest on GitHub",
+    "githubNote": "Pulled live from the GitHub API · sample data shown",
+    "viewAll": "View all on GitHub",
+    "mockAria": "{{name}} screenshot"
+  },
+  "stack": {
+    "eyebrow": "03 · Tech stack",
+    "title": "Proven tools, chosen for your project",
+    "lead": "I pick boring, well-supported technology so your system is easy to host, maintain and hand over.",
+    "groups": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "database": "Database",
+      "tools": "Tools"
+    }
+  },
+  "process": {
+    "eyebrow": "04 · Process",
+    "title": "Four steps, no surprises",
+    "lead": "You always know what happens next and what you'll have in your hands at the end of each step.",
+    "gets": "You get:",
+    "steps": [
+      {
+        "title": "Discuss",
+        "text": "A 30-minute call to understand your business, goals and budget.",
+        "get": "A clear summary of what you need"
+      },
+      {
+        "title": "Plan",
+        "text": "I map features, screens and milestones, then send a fixed quote.",
+        "get": "Scope, timeline & fixed quote"
+      },
+      {
+        "title": "Build",
+        "text": "Weekly demos on a live preview link, so you see progress, not promises.",
+        "get": "A working preview every week"
+      },
+      {
+        "title": "Deliver",
+        "text": "Launch, handover and a short training session for your team, plus [N] days of support.",
+        "get": "Live system, source code & docs"
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "05 · About",
+    "title": "A reliable engineer you can hand your business system to",
+    "bio": "I'm Mahmoud, a full-stack developer from Egypt. By day I build ERP, POS and learning platforms in .NET; on the side I help businesses replace spreadsheets and paperwork with simple, fast web apps. I care about clean code, quick pages, and interfaces that work as well in Arabic as in English.",
+    "photo": "Your photo · 4:5 portrait, natural light, plain background",
+    "stats": [
+      { "value": "[N]+", "label": "projects delivered" },
+      { "value": "[N]", "label": "years with .NET" },
+      { "value": "24h", "label": "reply time" }
+    ],
+    "timeline": [
+      {
+        "when": "2026 — now",
+        "title": ".NET Full-Stack Developer · VTS",
+        "text": "ERP + POS for local restaurants & cafés and a learning platform for private teachers."
+      },
+      {
+        "when": "2025 — 2026",
+        "title": "Full Stack Open · University of Helsinki",
+        "text": "React, Node.js, MongoDB, testing and CI."
+      },
+      {
+        "when": "In progress",
+        "title": "M.Sc. Computer Science · Fayoum University",
+        "text": "Machine learning, advanced operating systems."
+      },
+      {
+        "when": "[YEAR]",
+        "title": "B.Sc. Computer Science · MSA University",
+        "text": "Partnership degree with the University of Greenwich (UK)."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "06 · Testimonials",
+    "title": "What clients say",
+    "emptyTitle": "Your project could be the first story here",
+    "emptyText": "Reviews from Mostaql, Khamsat and direct clients will appear here as projects wrap up.",
+    "start": "Start a project"
+  },
+  "contact": {
+    "eyebrow": "07 · Contact",
+    "title": "Tell me about your project",
+    "lead": "I reply within 24 hours, usually much sooner.",
+    "name": "Name",
+    "email": "Email",
+    "phone": "WhatsApp number",
+    "optional": "(optional)",
+    "type": "Project type",
+    "typePlaceholder": "Select a project type",
+    "types": [
+      "Admin dashboard",
+      "Custom web app",
+      "Bug fixes & features",
+      "API integration",
+      "Not sure yet"
+    ],
+    "budget": "Budget range",
+    "budgetPlaceholder": "Select a range",
+    "budgets": ["[RANGE 1]", "[RANGE 2]", "[RANGE 3]", "Let's discuss"],
+    "message": "Message",
+    "privacy": "Your details stay private. No spam, ever.",
+    "send": "Send message",
+    "sending": "Sending…",
+    "okTitle": "Message sent",
+    "okText": "Thanks! I'll get back to you within 24 hours.",
+    "badTitle": "Couldn't send your message",
+    "badText": "Something went wrong. Please try again or message me on WhatsApp.",
+    "badNoConfig": "The form isn't connected yet. Please message me on WhatsApp for now.",
+    "callTitle": "Book a 30-min call",
+    "callText": "Pick a time that suits you. Google Meet or Zoom, in Arabic or English.",
+    "callCta": "Open calendar",
+    "callBy": "Scheduling by Cal.com",
+    "waTitle": "Quick question?",
+    "waText": "Message me on WhatsApp and I'll get back to you the same day.",
+    "emailLabel": "Email"
+  }
+}
