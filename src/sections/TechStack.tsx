@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Section, SectionHead, cardCls } from '@/components/ui/Section'
+import { Item, Stagger } from '@/components/ui/Reveal'
 import icons from '@/data/stack-icons.json'
 import stack from '@/data/stack.json'
 
@@ -33,9 +34,9 @@ export default function TechStack() {
         title={t('stack.title')}
         lead={t('stack.lead')}
       />
-      <div className="grid gap-3 xl:grid-cols-4 xl:gap-4 sm:grid-cols-2">
+      <Stagger className="grid gap-3 xl:grid-cols-4 xl:gap-4 sm:grid-cols-2">
         {groups.map((g) => (
-          <div key={g} className={`${cardCls} flex flex-col gap-4 p-[22px]`}>
+          <Item key={g} className={`${cardCls} flex flex-col gap-4 p-[22px]`}>
             <h3 className="text-[17px]">{t(`stack.groups.${g}`)}</h3>
             <ul className="grid grid-cols-2 gap-2">
               {stack[g].map((s) => (
@@ -48,9 +49,9 @@ export default function TechStack() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Item>
         ))}
-      </div>
+      </Stagger>
     </Section>
   )
 }

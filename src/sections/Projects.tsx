@@ -5,6 +5,7 @@ import { Link } from 'react-router'
 import { GitHubIcon } from '@/components/icons/brands'
 import Button from '@/components/ui/Button'
 import { Frame, ProjectMock, type MockKind } from '@/components/ui/Mock'
+import { Item, Reveal, Stagger } from '@/components/ui/Reveal'
 import { Section, SectionHead, cardCls, liftCls } from '@/components/ui/Section'
 import projects from '@/data/projects.json'
 import { useLang } from '@/hooks/useLang'
@@ -61,10 +62,13 @@ function CaseLink({ slug }: { slug: string }) {
     <Link
       to={`${base}/projects/${slug}`}
       onClick={() => trackEvent('project_open', { slug })}
-      className="inline-flex min-h-11 items-center gap-1.5 text-[15px] font-semibold text-acc no-underline hover:text-acch"
+      className="group/link inline-flex min-h-11 items-center gap-1.5 text-[15px] font-semibold text-acc no-underline hover:text-acch"
     >
       {t('projects.case')}
-      <ArrowRight size={16} className="rtl:-scale-x-100" />
+      <ArrowRight
+        size={16}
+        className="transition-transform group-hover/link:translate-x-1 rtl:-scale-x-100 rtl:group-hover/link:-translate-x-1"
+      />
     </Link>
   )
 }
@@ -95,7 +99,7 @@ function Media({ p, title }: { p: Project; title: string }) {
       <Frame
         url={p.mockUrl}
         label={t('projects.mockAria', { name: title })}
-        className="!rounded-b-none !border-b-0"
+        className="origin-bottom !rounded-b-none !border-b-0 transition-transform duration-500 ease-lift group-hover:scale-[1.04]"
       >
         <ProjectMock kind={p.mock as MockKind} />
       </Frame>
@@ -108,8 +112,9 @@ function Featured({ p }: { p: Project }) {
   const { lang } = useLang()
   const title = loc(p.title, lang)
   return (
-    <article
-      className={`${cardCls} ${liftCls} mb-5 grid overflow-hidden lg:grid-cols-[1.35fr_1fr]`}
+    <Reveal
+      as="article"
+      className={`${cardCls} ${liftCls} group mb-5 grid overflow-hidden lg:grid-cols-[1.35fr_1fr]`}
     >
       <div className="[&>div]:lg:px-7 [&>div]:lg:pt-7">
         <Media p={p} title={title} />
@@ -137,7 +142,7 @@ function Featured({ p }: { p: Project }) {
           <ProjectLinks p={p} />
         </div>
       </div>
-    </article>
+    </Reveal>
   )
 }
 
@@ -145,7 +150,10 @@ function Card({ p }: { p: Project }) {
   const { lang } = useLang()
   const title = loc(p.title, lang)
   return (
-    <article className={`${cardCls} ${liftCls} group flex flex-col overflow-hidden`}>
+    <Item
+      as="article"
+      className={`${cardCls} ${liftCls} group flex flex-col overflow-hidden`}
+    >
       <div className="relative">
         <Media p={p} title={title} />
         <ul className="pointer-events-none absolute inset-x-5 top-5 bottom-0 flex flex-col justify-end gap-2 rounded-t-xl bg-[linear-gradient(180deg,transparent_30%,color-mix(in_srgb,var(--bg)_92%,transparent))] p-4 text-[13px] text-tp opacity-0 transition-opacity duration-[250ms] group-focus-within:opacity-100 group-hover:opacity-100">
@@ -169,7 +177,7 @@ function Card({ p }: { p: Project }) {
           <ProjectLinks p={p} />
         </div>
       </div>
-    </article>
+    </Item>
   )
 }
 
@@ -209,11 +217,11 @@ export default function Projects() {
       </div>
 
       {featured && <Featured p={featured} />}
-      <div className="grid gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-3">
+      <Stagger className="grid gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-3">
         {rest.map((p) => (
           <Card key={p.slug} p={p} />
         ))}
-      </div>
+      </Stagger>
 
       <div className="mt-14">
         <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
@@ -226,9 +234,9 @@ export default function Projects() {
             <ArrowUpRight size={16} className="rtl:-scale-x-100" />
           </Button>
         </div>
-        <ul className="grid gap-3 xl:grid-cols-4 xl:gap-4 sm:grid-cols-2">
+        <Stagger as="ul" className="grid gap-3 xl:grid-cols-4 xl:gap-4 sm:grid-cols-2">
           {repos.map((r) => (
-            <li key={r.name}>
+            <Item as="li" key={r.name}>
               <a
                 href={r.url}
                 target="_blank"
@@ -266,9 +274,9 @@ export default function Projects() {
                   )}
                 </span>
               </a>
-            </li>
+            </Item>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </Section>
   )

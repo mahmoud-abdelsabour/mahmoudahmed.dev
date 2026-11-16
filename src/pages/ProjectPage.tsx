@@ -9,7 +9,6 @@ import {
   Zap,
   Video,
 } from 'lucide-react'
-import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router'
 import { GitHubIcon } from '@/components/icons/brands'
@@ -43,15 +42,6 @@ export default function ProjectPage() {
   const index = projects.findIndex((p) => p.slug === slug)
   const p = projects[index]
   const title = p ? loc(p.title, lang) : ''
-
-  useEffect(() => {
-    if (!p) return
-    const prev = document.title
-    document.title = `${title} · ${tc('brand.first')} ${tc('brand.last')}`
-    return () => {
-      document.title = prev
-    }
-  }, [p, title, tc])
 
   if (!p) return <NotFound />
 

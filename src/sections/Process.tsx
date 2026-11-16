@@ -1,5 +1,6 @@
 import { CheckCircle2, MessagesSquare, ClipboardList, Hammer, Rocket } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { Item, Stagger } from '@/components/ui/Reveal'
 import { Section, SectionHead } from '@/components/ui/Section'
 
 interface Step {
@@ -20,12 +21,13 @@ export default function Process() {
         title={t('process.title')}
         lead={t('process.lead')}
       />
-      <ol className="grid lg:grid-cols-4 lg:gap-6">
+      <Stagger as="ol" stagger={0.12} className="grid lg:grid-cols-4 lg:gap-6">
         {steps.map((s, i) => {
           const Icon = icons[i]
           const last = i === steps.length - 1
           return (
-            <li
+            <Item
+              as="li"
               key={s.title}
               className="relative grid grid-cols-[48px_minmax(0,1fr)] gap-4 pb-8 last:pb-0 lg:grid-cols-1 lg:pb-0"
             >
@@ -51,10 +53,10 @@ export default function Process() {
                   </span>
                 </p>
               </div>
-            </li>
+            </Item>
           )
         })}
-      </ol>
+      </Stagger>
     </Section>
   )
 }

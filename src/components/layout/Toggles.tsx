@@ -1,4 +1,5 @@
 import { Moon, Sun } from 'lucide-react'
+import { AnimatePresence, motion } from 'motion/react'
 import { useTranslation } from 'react-i18next'
 import Button from '@/components/ui/Button'
 import { useLang } from '@/hooks/useLang'
@@ -28,7 +29,18 @@ export function ThemeToggle() {
   const { theme, toggle } = useTheme()
   return (
     <Button variant="ghost" icon onClick={toggle} aria-label={t('toggle.switchTheme')}>
-      {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={theme}
+          className="inline-flex"
+          initial={{ rotate: -80, scale: 0.6, opacity: 0 }}
+          animate={{ rotate: 0, scale: 1, opacity: 1 }}
+          exit={{ rotate: 80, scale: 0.6, opacity: 0 }}
+          transition={{ duration: 0.16 }}
+        >
+          {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+        </motion.span>
+      </AnimatePresence>
     </Button>
   )
 }

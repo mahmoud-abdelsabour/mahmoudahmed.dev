@@ -32,3 +32,6 @@ docs/design/
 .vercel
 
 .playwright-mcp/
+
+# Visual Studio
+.vs/

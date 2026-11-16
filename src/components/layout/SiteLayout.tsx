@@ -1,12 +1,17 @@
+import { motion } from 'motion/react'
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router'
 import ScrollManager from '@/app/ScrollManager'
+import Seo from '@/app/Seo'
+import ScrollProgress from './ScrollProgress'
 import Footer from './Footer'
 import Navbar from './Navbar'
 import WhatsAppFab from './WhatsAppFab'
 
 export default function SiteLayout({ children }: { children: ReactNode }) {
   const { t } = useTranslation()
+  const { pathname } = useLocation()
   return (
     <>
       <a
@@ -16,8 +21,18 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
         {t('nav.skip')}
       </a>
       <ScrollManager />
+      <Seo />
+      <ScrollProgress />
       <Navbar />
-      <main id="main">{children}</main>
+      <motion.main
+        id="main"
+        key={pathname}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        {children}
+      </motion.main>
       <Footer />
       <WhatsAppFab />
     </>

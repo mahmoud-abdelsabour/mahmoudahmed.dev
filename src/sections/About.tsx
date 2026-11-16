@@ -1,5 +1,6 @@
 import { ImageIcon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { Item, Stagger } from '@/components/ui/Reveal'
 import { Section, SectionHead, cardCls } from '@/components/ui/Section'
 
 interface Stat {
@@ -25,26 +26,27 @@ export default function About() {
             <ImageIcon size={32} aria-hidden="true" />
             {t('about.photo')}
           </div>
-          <ul className="grid grid-cols-3 gap-2.5">
+          <Stagger as="ul" className="grid grid-cols-3 gap-2.5">
             {stats.map((s) => (
-              <li key={s.label} className={`${cardCls} px-3.5 py-4`}>
+              <Item as="li" key={s.label} className={`${cardCls} px-3.5 py-4`}>
                 <b className="block text-[26px] leading-[1.1] font-bold tracking-tight text-tp">
                   {s.value}
                 </b>
                 <span className="mt-1.5 block text-[13px] leading-snug text-ts">
                   {s.label}
                 </span>
-              </li>
+              </Item>
             ))}
-          </ul>
+          </Stagger>
         </div>
 
         <div className="flex flex-col gap-6">
           <SectionHead eyebrow={t('about.eyebrow')} title={t('about.title')} />
           <p className="lead">{t('about.bio')}</p>
-          <ol className="flex flex-col">
+          <Stagger as="ol" className="flex flex-col">
             {timeline.map((e) => (
-              <li
+              <Item
+                as="li"
                 key={e.title}
                 className="grid gap-1 border-t border-border py-4 sm:grid-cols-[130px_minmax(0,1fr)] sm:gap-3.5"
               >
@@ -52,12 +54,12 @@ export default function About() {
                   {e.when}
                 </span>
                 <div>
-                  <h4 className="text-[17px] leading-snug">{e.title}</h4>
+                  <h3 className="text-[17px] leading-snug">{e.title}</h3>
                   <p className="mt-1 text-sm text-ts">{e.text}</p>
                 </div>
-              </li>
+              </Item>
             ))}
-          </ol>
+          </Stagger>
         </div>
       </div>
     </Section>

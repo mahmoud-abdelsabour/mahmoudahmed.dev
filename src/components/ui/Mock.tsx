@@ -1,4 +1,5 @@
-import type { CSSProperties, ReactNode } from 'react'
+import { animate, motion, useReducedMotion } from 'motion/react'
+import { useEffect, useState, type CSSProperties, type ReactNode } from 'react'
 
 /** Browser frame with stylised mock UI inside (always LTR). */
 export function Frame({
@@ -22,6 +23,32 @@ export function Frame({
       </div>
       {children}
     </div>
+  )
+}
+
+function CountUp({
+  to,
+  decimals = 0,
+  suffix = '',
+  delay = 0.7,
+}: {
+  to: number
+  decimals?: number
+  suffix?: string
+  delay?: number
+}) {
+  const reduce = useReducedMotion()
+  const [v, setV] = useState(reduce ? to : 0)
+  useEffect(() => {
+    if (reduce) return
+    const c = animate(0, to, { duration: 1.6, delay, ease: 'easeOut', onUpdate: setV })
+    return () => c.stop()
+  }, [to, delay, reduce])
+  return (
+    <>
+      {(reduce ? to : v).toFixed(decimals)}
+      {suffix}
+    </>
   )
 }
 
@@ -66,23 +93,40 @@ export function HeroMock() {
         <div className="kpis">
           <div className="kpi">
             <span>Orders</span>
-            <b>128</b>
+            <b>
+              <CountUp to={128} />
+            </b>
             <em>▲ 12%</em>
           </div>
           <div className="kpi">
             <span>Revenue (EGP)</span>
-            <b>46.2k</b>
+            <b>
+              <CountUp to={46.2} decimals={1} suffix="k" />
+            </b>
             <em>▲ 8%</em>
           </div>
           <div className="kpi">
             <span>Avg. prep time</span>
-            <b>9m</b>
+            <b>
+              <CountUp to={9} suffix="m" />
+            </b>
             <em>▼ 2m</em>
           </div>
         </div>
         <div className="bars">
           {bars.map((h, i) => (
-            <i key={i} className={i === 9 ? 'on' : ''} style={{ height: `${h}%` }} />
+            <motion.i
+              key={i}
+              className={i === 9 ? 'on' : ''}
+              style={{ height: `${h}%`, originY: 1 }}
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{
+                duration: 0.7,
+                delay: 0.6 + i * 0.06,
+                ease: [0.2, 0.7, 0.2, 1],
+              }}
+            />
           ))}
         </div>
         <div className="rws">

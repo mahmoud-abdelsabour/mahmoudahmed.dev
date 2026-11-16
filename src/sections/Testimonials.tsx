@@ -2,6 +2,7 @@ import { MessageSquareQuote } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { buttonClass } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 import { Section, SectionHead, cardCls } from '@/components/ui/Section'
 import { useLang } from '@/hooks/useLang'
 
@@ -16,7 +17,7 @@ export default function Testimonials() {
         eyebrow={t('testimonials.eyebrow')}
         title={t('testimonials.title')}
       />
-      <div
+      <Reveal
         className={`${cardCls} flex flex-col items-center gap-3.5 border-dashed px-6 py-10 text-center`}
       >
         <span className="inline-flex size-11 items-center justify-center rounded-btn bg-acc-soft text-acc">
@@ -30,7 +31,7 @@ export default function Testimonials() {
         >
           {t('testimonials.start')}
         </Link>
-      </div>
+      </Reveal>
     </Section>
   )
 }

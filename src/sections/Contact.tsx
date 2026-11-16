@@ -10,6 +10,7 @@ import {
 import { useState, type FormEvent, type MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import Button from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 import { Section, SectionHead, cardCls } from '@/components/ui/Section'
 import { useTheme } from '@/hooks/useTheme'
 import { trackEvent } from '@/lib/analytics'
@@ -84,7 +85,8 @@ export default function Contact() {
         lead={t('contact.lead')}
       />
       <div className="grid gap-5 lg:grid-cols-[7fr_5fr] lg:gap-6">
-        <form
+        <Reveal
+          as="form"
           onSubmit={onSubmit}
           className={`${cardCls} grid gap-[18px] p-6 md:grid-cols-2 md:p-8`}
           noValidate={false}
@@ -195,9 +197,9 @@ export default function Contact() {
               </div>
             )}
           </div>
-        </form>
+        </Reveal>
 
-        <div className="flex flex-col gap-4">
+        <Reveal delay={0.12} className="flex flex-col gap-4">
           <div
             className={`${cardCls} flex flex-col gap-3 border-[color-mix(in_srgb,var(--acc)_50%,var(--border))] bg-[linear-gradient(180deg,var(--acc-soft),var(--surface)_70%)] p-[22px]`}
           >
@@ -247,7 +249,7 @@ export default function Contact() {
               </a>
             </p>
           )}
-        </div>
+        </Reveal>
       </div>
     </Section>
   )

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { Reveal } from '@/components/ui/Reveal'
 
 export function Container({
   children,
@@ -34,13 +35,13 @@ export function SectionHead({
   className?: string
 }) {
   return (
-    <div className={`flex max-w-[680px] flex-col gap-3.5 ${className}`}>
+    <Reveal className={`flex max-w-[680px] flex-col gap-3.5 ${className}`}>
       <p className="eyebrow rtl:font-sans rtl:text-sm rtl:font-semibold rtl:tracking-normal rtl:normal-case">
         {eyebrow}
       </p>
       <h2 className="h2-size">{title}</h2>
       {lead && <p className="lead">{lead}</p>}
-    </div>
+    </Reveal>
   )
 }
 

@@ -1,5 +1,8 @@
 {
-  "brand": { "first": "Mahmoud", "last": "Abdelsabour" },
+  "brand": {
+    "first": "Mahmoud",
+    "last": "Abdelsabour"
+  },
   "nav": {
     "label": "Primary",
     "mobileLabel": "Mobile",
@@ -37,9 +40,18 @@
     "top": "Back to top",
     "socials": "Social links"
   },
-  "home": { "soon": "Sections are being built in Phase 3." },
+  "home": {
+    "soon": "Sections are being built in Phase 3."
+  },
   "notFound": {
     "title": "This page doesn't exist",
     "text": "The link may be broken or the page was moved. Let's get you back on track."
+  },
+  "seo": {
+    "title": "Mahmoud Abdelsabour — Full-stack developer for business web apps",
+    "description": "I build admin dashboards, custom web apps and API integrations for small and medium businesses, in Arabic and English. .NET & React. Book a free call.",
+    "projectSuffix": "Case study",
+    "ogAlt": "Mahmoud Abdelsabour — business web apps and dashboards",
+    "jobTitle": "Full-stack developer"
   }
 }

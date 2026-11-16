@@ -2,6 +2,7 @@ import { ArrowRight, Check, LayoutDashboard, AppWindow, Plug, Wrench } from 'luc
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { Section, SectionHead, cardCls, liftCls } from '@/components/ui/Section'
+import { Item, Stagger } from '@/components/ui/Reveal'
 import { useLang } from '@/hooks/useLang'
 import { site } from '@/lib/site'
 
@@ -26,11 +27,12 @@ export default function Services() {
         title={t('services.title')}
         lead={t('services.lead')}
       />
-      <div className="grid gap-4 md:grid-cols-2 md:gap-5">
+      <Stagger className="grid gap-4 md:grid-cols-2 md:gap-5">
         {items.map((item, i) => {
           const Icon = icons[i]
           return (
-            <article
+            <Item
+              as="article"
               key={item.title}
               className={`${cardCls} ${liftCls} flex flex-col gap-4 p-6 lg:p-8`}
             >
@@ -67,16 +69,19 @@ export default function Services() {
                 )}
                 <Link
                   to={{ pathname: base || '/', hash: '#contact' }}
-                  className="inline-flex min-h-11 items-center gap-1.5 text-[15px] font-semibold text-acc no-underline hover:text-acch"
+                  className="group/link inline-flex min-h-11 items-center gap-1.5 text-[15px] font-semibold text-acc no-underline hover:text-acch"
                 >
                   {t('services.discuss')}
-                  <ArrowRight size={16} className="rtl:-scale-x-100" />
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform group-hover/link:translate-x-1 rtl:-scale-x-100 rtl:group-hover/link:-translate-x-1"
+                  />
                 </Link>
               </div>
-            </article>
+            </Item>
           )
         })}
-      </div>
+      </Stagger>
     </Section>
   )
 }
