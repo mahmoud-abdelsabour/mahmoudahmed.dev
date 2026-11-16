@@ -4,7 +4,8 @@ export const site = {
   domain: 'mahmoudahmed.dev',
   url: 'https://mahmoudahmed.dev',
   whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER ?? '', // digits only, with country code
-  calUsername: import.meta.env.VITE_CAL_USERNAME ?? '',
+  calUsername: import.meta.env.VITE_CAL_USERNAME ?? 'mahmoud-ahmed-gems9b',
+  calEvent: '30min', // slug of the event type opened by the booking popup
   showPrices: true, // service cards: "Starting from [PRICE]"
   formspreeId: import.meta.env.VITE_FORMSPREE_ID ?? '',
   email: '', // e.g. hello@mahmoudahmed.dev

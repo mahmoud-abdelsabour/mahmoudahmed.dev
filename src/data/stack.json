@@ -1,26 +1,74 @@
 {
   "backend": [
-    { "name": ".NET", "mark": "NET", "color": "#7c5cff" },
-    { "name": "ASP.NET Core", "mark": "ASP", "color": "#7c5cff" },
-    { "name": "Node.js", "mark": "JS", "color": "#68a063" },
-    { "name": "Entity Framework", "mark": "EF", "color": "#2ec4a6" }
+    {
+      "name": ".NET",
+      "icon": "dot-net"
+    },
+    {
+      "name": "ASP.NET Core",
+      "icon": "dotnetcore"
+    },
+    {
+      "name": "Node.js",
+      "icon": "nodejs"
+    },
+    {
+      "name": "Entity Framework",
+      "icon": "entityframeworkcore"
+    }
   ],
   "frontend": [
-    { "name": "React", "mark": "Re", "color": "#61dafb" },
-    { "name": "Tailwind CSS", "mark": "Tw", "color": "#38bdf8" },
-    { "name": "TypeScript", "mark": "TS", "color": "#3178c6" },
-    { "name": "Bootstrap", "mark": "B", "color": "#a77bf3" }
+    {
+      "name": "React",
+      "icon": "react"
+    },
+    {
+      "name": "Tailwind CSS",
+      "icon": "tailwindcss"
+    },
+    {
+      "name": "TypeScript",
+      "icon": "typescript"
+    },
+    {
+      "name": "Bootstrap",
+      "icon": "bootstrap"
+    }
   ],
   "database": [
-    { "name": "SQL Server", "mark": "SQL", "color": "#e5534b" },
-    { "name": "PostgreSQL", "mark": "PG", "color": "#5b8fd0" },
-    { "name": "MongoDB", "mark": "Mo", "color": "#47a248" },
-    { "name": "Redis", "mark": "Rd", "color": "#e5534b" }
+    {
+      "name": "SQL Server",
+      "icon": "microsoftsqlserver"
+    },
+    {
+      "name": "PostgreSQL",
+      "icon": "postgresql"
+    },
+    {
+      "name": "MongoDB",
+      "icon": "mongodb"
+    },
+    {
+      "name": "Redis",
+      "icon": "redis"
+    }
   ],
   "tools": [
-    { "name": "Git & GitHub", "mark": "Git", "color": "#f1744c" },
-    { "name": "Docker", "mark": "Dk", "color": "#2496ed" },
-    { "name": "Postman", "mark": "Pm", "color": "#ff6c37" },
-    { "name": "Azure DevOps", "mark": "Az", "color": "#0078d4" }
+    {
+      "name": "Git & GitHub",
+      "icon": "git"
+    },
+    {
+      "name": "Docker",
+      "icon": "docker"
+    },
+    {
+      "name": "Postman",
+      "icon": "postman"
+    },
+    {
+      "name": "Azure DevOps",
+      "icon": "azuredevops"
+    }
   ]
 }

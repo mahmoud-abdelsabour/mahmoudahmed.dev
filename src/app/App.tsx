@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { MotionConfig } from 'motion/react'
 import { RouterProvider } from 'react-router'
 import '@/lib/i18n'
@@ -11,6 +12,7 @@ export default function App() {
       <MotionConfig reducedMotion="user">
         <SmoothScroll />
         <RouterProvider router={router} />
+        <Analytics />
       </MotionConfig>
     </ThemeProvider>
   )

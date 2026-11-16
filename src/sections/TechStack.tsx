@@ -1,6 +1,25 @@
 import { useTranslation } from 'react-i18next'
 import { Section, SectionHead, cardCls } from '@/components/ui/Section'
+import icons from '@/data/stack-icons.json'
 import stack from '@/data/stack.json'
+
+type IconId = keyof typeof icons
+
+function StackIcon({ id }: { id: string }) {
+  const icon = icons[id as IconId]
+  return (
+    <span
+      aria-hidden="true"
+      className="inline-flex size-[34px] flex-none items-center justify-center rounded-[8px] bg-[color-mix(in_srgb,var(--tp)_7%,transparent)] p-1.5"
+    >
+      <svg
+        viewBox={`0 0 ${icon.width} ${icon.height}`}
+        className="size-full"
+        dangerouslySetInnerHTML={{ __html: icon.body }}
+      />
+    </span>
+  )
+}
 
 const groups = ['backend', 'frontend', 'database', 'tools'] as const
 
@@ -24,17 +43,7 @@ export default function TechStack() {
                   key={s.name}
                   className="flex min-h-[52px] items-center gap-2.5 rounded-btn border border-border bg-bg p-2.5 text-sm font-medium text-tp"
                 >
-                  <span
-                    dir="ltr"
-                    aria-hidden="true"
-                    className="inline-flex size-[30px] flex-none items-center justify-center rounded-[7px] font-mono text-[11px] font-bold"
-                    style={{
-                      color: s.color,
-                      background: `color-mix(in srgb, ${s.color} 16%, transparent)`,
-                    }}
-                  >
-                    {s.mark}
-                  </span>
+                  <StackIcon id={s.icon} />
                   <bdi>{s.name}</bdi>
                 </li>
               ))}

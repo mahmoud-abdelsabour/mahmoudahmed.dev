@@ -6,6 +6,10 @@ import type { Lang } from '@/lib/i18n'
 
 const children: RouteObject[] = [
   { index: true, element: <Home /> },
+  {
+    path: 'projects/:slug',
+    lazy: async () => ({ Component: (await import('@/pages/ProjectPage')).default }),
+  },
   { path: '*', element: <NotFound /> },
 ]
 

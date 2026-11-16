@@ -7,10 +7,13 @@ import {
   MessageCircle,
   ShieldCheck,
 } from 'lucide-react'
-import { useState, type FormEvent } from 'react'
+import { useState, type FormEvent, type MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import Button from '@/components/ui/Button'
 import { Section, SectionHead, cardCls } from '@/components/ui/Section'
+import { useTheme } from '@/hooks/useTheme'
+import { trackEvent } from '@/lib/analytics'
+import { calUrl, openCal } from '@/lib/cal'
 import { site, whatsappLink } from '@/lib/site'
 
 type Status = 'idle' | 'sending' | 'ok' | 'error' | 'noconfig'
@@ -42,6 +45,7 @@ function Field({
 export default function Contact() {
   const { t } = useTranslation('home')
   const { t: tc } = useTranslation()
+  const { theme } = useTheme()
   const [status, setStatus] = useState<Status>('idle')
   const types = t('contact.types', { returnObjects: true }) as string[]
   const budgets = t('contact.budgets', { returnObjects: true }) as string[]
@@ -65,12 +69,11 @@ export default function Contact() {
       if (!res.ok) throw new Error(String(res.status))
       form.reset()
       setStatus('ok')
+      trackEvent('form_submit')
     } catch {
       setStatus('error')
     }
   }
-
-  const callHref = site.calUsername ? `https://cal.com/${site.calUsername}` : undefined
 
   return (
     <Section id="contact">
@@ -203,14 +206,23 @@ export default function Contact() {
             </span>
             <h3 className="text-xl">{t('contact.callTitle')}</h3>
             <p className="text-ts">{t('contact.callText')}</p>
-            <Button
-              href={callHref}
-              block
-              aria-disabled={!callHref}
-              className={callHref ? '' : 'pointer-events-none opacity-45'}
-            >
-              {t('contact.callCta')}
-            </Button>
+            {calUrl ? (
+              <Button
+                href={calUrl}
+                block
+                onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault()
+                  trackEvent('cta_book_call', { source: 'contact' })
+                  void openCal(theme)
+                }}
+              >
+                {t('contact.callCta')}
+              </Button>
+            ) : (
+              <Button block disabled>
+                {t('contact.callCta')}
+              </Button>
+            )}
             <p className="text-xs text-tm">{t('contact.callBy')}</p>
           </div>
 

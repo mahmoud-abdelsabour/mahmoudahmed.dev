@@ -1,5 +1,6 @@
 import type { ComponentProps, ReactNode } from 'react'
 import { Link } from 'react-router'
+import { eventForHref, trackEvent, type AnalyticsEvent } from '@/lib/analytics'
 
 type Variant = 'primary' | 'secondary' | 'ghost'
 type Size = 'sm' | 'md' | 'lg'
@@ -22,6 +23,8 @@ interface Own {
   size?: Size
   icon?: boolean
   block?: boolean
+  /** Analytics event fired on click (wa.me / cal.com / .pdf links are detected automatically) */
+  track?: AnalyticsEvent
   className?: string
   children?: ReactNode
 }
@@ -54,16 +57,33 @@ type Props =
       >)
 
 export default function Button(props: Props) {
-  const { variant, size, icon, block, className, ...rest } = props
+  const { variant, size, icon, block, className, track, ...rest } = props
   const cls = buttonClass({ variant, size, icon, block, className })
-  if ('to' in rest && rest.to !== undefined)
-    return <Link {...(rest as ComponentProps<typeof Link>)} className={cls} />
+  const fire = (name?: AnalyticsEvent) => name && trackEvent(name)
+  if ('to' in rest && rest.to !== undefined) {
+    const { onClick, ...r } = rest as ComponentProps<typeof Link>
+    return (
+      <Link
+        {...r}
+        className={cls}
+        onClick={(e) => {
+          fire(track)
+          onClick?.(e)
+        }}
+      />
+    )
+  }
   if ('href' in rest && rest.href !== undefined) {
     const external = /^https?:/.test(rest.href)
+    const { onClick, ...r } = rest as ComponentProps<'a'>
     return (
       <a
-        {...(rest as ComponentProps<'a'>)}
+        {...r}
         className={cls}
+        onClick={(e) => {
+          fire(track ?? eventForHref(rest.href))
+          onClick?.(e)
+        }}
         {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       />
     )

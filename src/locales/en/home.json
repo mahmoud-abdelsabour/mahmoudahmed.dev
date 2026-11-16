@@ -62,7 +62,12 @@
     "eyebrow": "02 · Projects",
     "title": "Real systems, used by real teams",
     "filterLabel": "Filter projects",
-    "filters": { "all": "All", "web": "Web apps", "dash": "Dashboards", "api": "APIs" },
+    "filters": {
+      "all": "All",
+      "web": "Web apps",
+      "dash": "Dashboards",
+      "api": "APIs"
+    },
     "featured": "Featured",
     "live": "Live",
     "wip": "In progress",
@@ -71,7 +76,8 @@
     "github": "Latest on GitHub",
     "githubNote": "Pulled live from the GitHub API · sample data shown",
     "viewAll": "View all on GitHub",
-    "mockAria": "{{name}} screenshot"
+    "mockAria": "{{name}} screenshot",
+    "updated": "Updated {{when}}"
   },
   "stack": {
     "eyebrow": "03 · Tech stack",
@@ -118,9 +124,18 @@
     "bio": "I'm Mahmoud, a full-stack developer from Egypt. By day I build ERP, POS and learning platforms in .NET; on the side I help businesses replace spreadsheets and paperwork with simple, fast web apps. I care about clean code, quick pages, and interfaces that work as well in Arabic as in English.",
     "photo": "Your photo · 4:5 portrait, natural light, plain background",
     "stats": [
-      { "value": "[N]+", "label": "projects delivered" },
-      { "value": "[N]", "label": "years with .NET" },
-      { "value": "24h", "label": "reply time" }
+      {
+        "value": "[N]+",
+        "label": "projects delivered"
+      },
+      {
+        "value": "[N]",
+        "label": "years with .NET"
+      },
+      {
+        "value": "24h",
+        "label": "reply time"
+      }
     ],
     "timeline": [
       {
@@ -188,5 +203,28 @@
     "waTitle": "Quick question?",
     "waText": "Message me on WhatsApp and I'll get back to you the same day.",
     "emailLabel": "Email"
+  },
+  "projectPage": {
+    "back": "All projects",
+    "year": "Year",
+    "role": "Role",
+    "status": "Status",
+    "problem": "The problem",
+    "solution": "The solution",
+    "highlights": "Key features",
+    "screenshots": "Screenshots",
+    "screenshotsSoon": "Real screenshots will be added here.",
+    "video": "Demo video",
+    "play": "Play video",
+    "watch": "Watch video",
+    "repo": "Source code",
+    "tech": "Tech used",
+    "ctaTitle": "Need something similar?",
+    "ctaText": "Tell me what you need and I'll suggest the simplest route.",
+    "prev": "Previous project",
+    "next": "Next project",
+    "draft": "Draft content: to be replaced with the real case-study details.",
+    "close": "Close",
+    "open": "Open image"
   }
 }

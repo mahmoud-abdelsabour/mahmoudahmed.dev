@@ -4,18 +4,75 @@
     "featured": true,
     "category": "web",
     "status": "live",
+    "draft": true,
+    "year": 2026,
     "mock": "cases",
     "mockUrl": "charity.app/cases",
-    "title": { "en": "Charity Management System", "ar": "نظام إدارة الجمعيات الخيرية" },
+    "title": {
+      "en": "Charity Management System",
+      "ar": "نظام إدارة الجمعيات الخيرية"
+    },
     "summary": {
       "en": "Cases, donations and monthly commitments for a charity in one place, with financial reports rebuilt for speed using SQL-side paging and lean queries.",
       "ar": "الحالات والتبرعات والالتزامات الشهرية لجمعية خيرية في مكان واحد، مع تقارير مالية أُعيد بناؤها للسرعة باستخدام الترقيم على مستوى SQL واستعلامات خفيفة."
     },
+    "role": {
+      "en": "Full-stack developer",
+      "ar": "مطوّر Full-Stack"
+    },
+    "problem": {
+      "en": "A charity was keeping cases, donations and monthly commitments in separate files. Finding a beneficiary's aid history took time, financial reports were slow to open, and there was no clear record of who changed what.",
+      "ar": "كانت الجمعية تحتفظ بالحالات والتبرعات والالتزامات الشهرية في ملفات منفصلة. كان الوصول إلى سجل مساعدات مستفيد ما يستغرق وقتاً، والتقارير المالية بطيئة الفتح، ولا يوجد سجل واضح لمن عدّل ماذا."
+    },
+    "solution": {
+      "en": "One ASP.NET MVC system where every case holds its full aid history, and donations and commitments link back to it. Financial reports were rebuilt to page and filter inside SQL with lean queries, so large lists stay fast. Staff only see what their role allows, and every change is written to an audit trail.",
+      "ar": "نظام ASP.NET MVC واحد تحتفظ فيه كل حالة بسجل مساعداتها الكامل، وترتبط به التبرعات والالتزامات. أُعيد بناء التقارير المالية لتقوم بالترقيم والتصفية داخل SQL باستعلامات خفيفة، فتبقى القوائم الكبيرة سريعة. يرى الموظفون ما يسمح به دورهم فقط، ويُسجَّل كل تغيير في سجل تدقيق."
+    },
+    "highlights": [
+      {
+        "title": {
+          "en": "Beneficiary case file",
+          "ar": "ملف المستفيد"
+        },
+        "text": {
+          "en": "Every case keeps its full aid history on one timeline.",
+          "ar": "تحتفظ كل حالة بسجل مساعداتها الكامل في خط زمني واحد."
+        }
+      },
+      {
+        "title": {
+          "en": "Fast financial reports",
+          "ar": "تقارير مالية سريعة"
+        },
+        "text": {
+          "en": "Paging and filtering run in SQL, so reports stay quick as data grows.",
+          "ar": "الترقيم والتصفية يتمّان في SQL، فتبقى التقارير سريعة مع نمو البيانات."
+        }
+      },
+      {
+        "title": {
+          "en": "Roles & audit trail",
+          "ar": "الأدوار وسجل التدقيق"
+        },
+        "text": {
+          "en": "Staff see only what their role allows, and changes are logged.",
+          "ar": "يرى الموظفون ما يسمح به دورهم فقط، وتُسجَّل التغييرات."
+        }
+      }
+    ],
     "features": [
-      { "en": "Full aid history per beneficiary", "ar": "سجل مساعدات كامل لكل مستفيد" },
-      { "en": "Role-based access & audit trail", "ar": "صلاحيات حسب الدور وسجل تدقيق" }
+      {
+        "en": "Full aid history per beneficiary",
+        "ar": "سجل مساعدات كامل لكل مستفيد"
+      },
+      {
+        "en": "Role-based access & audit trail",
+        "ar": "صلاحيات حسب الدور وسجل تدقيق"
+      }
     ],
     "stack": ["ASP.NET MVC", "EF Core", "SQL Server", "DataTables"],
+    "screenshots": [],
+    "video": "",
     "liveUrl": "",
     "repoUrl": ""
   },
@@ -24,21 +81,75 @@
     "featured": false,
     "category": "web",
     "status": "wip",
+    "draft": true,
+    "year": 2026,
     "mock": "courses",
     "mockUrl": "educonnect.app/courses",
-    "title": { "en": "EduConnect", "ar": "EduConnect" },
+    "title": {
+      "en": "EduConnect",
+      "ar": "EduConnect"
+    },
     "summary": {
       "en": "Bilingual learning platform for private teachers: courses, students and sessions, in Arabic & English with dark mode.",
       "ar": "منصة تعليمية ثنائية اللغة للمدرّسين الخصوصيين: الدورات والطلاب والجلسات، بالعربية والإنجليزية مع الوضع الداكن."
     },
+    "role": {
+      "en": "Full-stack developer",
+      "ar": "مطوّر Full-Stack"
+    },
+    "problem": {
+      "en": "Private teachers often run courses, students and sessions through chat apps and notebooks. Nothing lives in one place, and tools built for schools are too heavy and rarely work well in Arabic.",
+      "ar": "يدير المدرّسون الخصوصيون دوراتهم وطلابهم وجلساتهم غالباً عبر تطبيقات المحادثة والدفاتر. لا شيء في مكان واحد، والأدوات المصمّمة للمدارس ثقيلة وغالباً لا تعمل جيداً بالعربية."
+    },
+    "solution": {
+      "en": "A lightweight ASP.NET Core platform built for one teacher or a small team. Courses, students and sessions sit together, the whole interface switches between Arabic and English from a single resource file, and a dark mode is included.",
+      "ar": "منصة ASP.NET Core خفيفة مبنية لمدرّس واحد أو فريق صغير. الدورات والطلاب والجلسات معاً، وتتبدّل الواجهة كاملةً بين العربية والإنجليزية من ملف موارد واحد، مع وضع داكن."
+    },
+    "highlights": [
+      {
+        "title": {
+          "en": "Courses, students, sessions",
+          "ar": "الدورات والطلاب والجلسات"
+        },
+        "text": {
+          "en": "Everything a teacher manages, in one place.",
+          "ar": "كل ما يديره المدرّس في مكان واحد."
+        }
+      },
+      {
+        "title": {
+          "en": "Arabic & English",
+          "ar": "عربي وإنجليزي"
+        },
+        "text": {
+          "en": "One resource file drives both languages, with proper RTL.",
+          "ar": "ملف موارد واحد يدير اللغتين، مع دعم صحيح للاتجاه من اليمين لليسار."
+        }
+      },
+      {
+        "title": {
+          "en": "Safe data handling",
+          "ar": "تعامل آمن مع البيانات"
+        },
+        "text": {
+          "en": "Soft delete and audit fields on every record.",
+          "ar": "حذف ناعم وحقول تدقيق في كل سجل."
+        }
+      }
+    ],
     "features": [
       {
         "en": "Soft delete & audit fields everywhere",
         "ar": "حذف ناعم وحقول تدقيق في كل مكان"
       },
-      { "en": "One resource file for EN/AR", "ar": "ملف موارد واحد للعربية والإنجليزية" }
+      {
+        "en": "One resource file for EN/AR",
+        "ar": "ملف موارد واحد للعربية والإنجليزية"
+      }
     ],
     "stack": ["ASP.NET Core", "EF Core", "SQL Server"],
+    "screenshots": [],
+    "video": "",
     "liveUrl": "",
     "repoUrl": ""
   },
@@ -47,18 +158,75 @@
     "featured": false,
     "category": "dash",
     "status": "wip",
+    "draft": true,
+    "year": 2026,
     "mock": "pos",
     "mockUrl": "rms.app/pos",
-    "title": { "en": "RMS · Restaurant POS", "ar": "RMS · نقاط بيع المطاعم" },
+    "title": {
+      "en": "RMS · Restaurant POS",
+      "ar": "RMS · نقاط بيع المطاعم"
+    },
     "summary": {
       "en": "Cashier, kitchen, inventory and daily sales reports for restaurants & cafés in one dashboard.",
       "ar": "الكاشير والمطبخ والمخزون وتقارير المبيعات اليومية للمطاعم والمقاهي في لوحة واحدة."
     },
+    "role": {
+      "en": "Full-stack developer",
+      "ar": "مطوّر Full-Stack"
+    },
+    "problem": {
+      "en": "Restaurants and cafés often use separate tools for the cashier, the kitchen and stock, so owners only see the real numbers after closing.",
+      "ar": "تستخدم المطاعم والمقاهي غالباً أدوات منفصلة للكاشير والمطبخ والمخزون، فلا يرى المالك الأرقام الحقيقية إلا بعد الإغلاق."
+    },
+    "solution": {
+      "en": "A React dashboard on a .NET 10 backend that brings the cashier, kitchen, inventory and daily sales reports together. It is built to run on a tablet at the counter, and each staff member only sees the pages their role allows.",
+      "ar": "لوحة React فوق واجهة خلفية بـ ‎.NET 10 تجمع الكاشير والمطبخ والمخزون وتقارير المبيعات اليومية. مصمّمة لتعمل على تابلت عند الكاشير، ولا يرى كل موظف إلا الصفحات التي يسمح بها دوره."
+    },
+    "highlights": [
+      {
+        "title": {
+          "en": "Cashier & tables",
+          "ar": "الكاشير والطاولات"
+        },
+        "text": {
+          "en": "Fast order entry that works on a tablet at the counter.",
+          "ar": "إدخال طلبات سريع يعمل على تابلت عند الكاشير."
+        }
+      },
+      {
+        "title": {
+          "en": "Kitchen & inventory",
+          "ar": "المطبخ والمخزون"
+        },
+        "text": {
+          "en": "Orders reach the kitchen and stock is tracked in the same system.",
+          "ar": "تصل الطلبات إلى المطبخ ويُتابَع المخزون في النظام نفسه."
+        }
+      },
+      {
+        "title": {
+          "en": "Daily sales reports",
+          "ar": "تقارير المبيعات اليومية"
+        },
+        "text": {
+          "en": "See the day's numbers without waiting for closing.",
+          "ar": "اطّلع على أرقام اليوم دون انتظار الإغلاق."
+        }
+      }
+    ],
     "features": [
-      { "en": "Works on a tablet at the counter", "ar": "يعمل على تابلت عند الكاشير" },
-      { "en": "Pages hidden by role", "ar": "صفحات تُخفى حسب الدور" }
+      {
+        "en": "Works on a tablet at the counter",
+        "ar": "يعمل على تابلت عند الكاشير"
+      },
+      {
+        "en": "Pages hidden by role",
+        "ar": "صفحات تُخفى حسب الدور"
+      }
     ],
     "stack": ["React", ".NET 10", "PostgreSQL"],
+    "screenshots": [],
+    "video": "",
     "liveUrl": "",
     "repoUrl": ""
   },
@@ -67,18 +235,75 @@
     "featured": false,
     "category": "api",
     "status": "wip",
+    "draft": true,
+    "year": 2026,
     "mock": "api",
     "mockUrl": "api.rms.app/swagger",
-    "title": { "en": "RMS API", "ar": "RMS API" },
+    "title": {
+      "en": "RMS API",
+      "ar": "RMS API"
+    },
     "summary": {
       "en": "REST API with JWT auth and admin-defined roles & page permissions, ready for a future mobile app.",
       "ar": "واجهة REST بمصادقة JWT وأدوار وصلاحيات صفحات يحدّدها المدير، جاهزة لتطبيق جوال مستقبلاً."
     },
+    "role": {
+      "en": "Backend developer",
+      "ar": "مطوّر الواجهة الخلفية"
+    },
+    "problem": {
+      "en": "A restaurant system needs one secure backend that the dashboard and a future mobile app can share, and permissions that the business can change without a developer.",
+      "ar": "يحتاج نظام المطعم إلى واجهة خلفية آمنة واحدة تشاركها لوحة التحكم وتطبيق الجوال مستقبلاً، وصلاحيات يستطيع النشاط تغييرها دون الحاجة إلى مطوّر."
+    },
+    "solution": {
+      "en": "A .NET 10 Web API with JWT authentication where admins create roles and choose which pages each role can open. Every endpoint is documented in Swagger, so any client can be built against it.",
+      "ar": "واجهة ‎.NET 10 Web API بمصادقة JWT، ينشئ فيها المدير الأدوار ويحدد الصفحات المتاحة لكل دور. كل مسار موثّق في Swagger، فيمكن بناء أي عميل فوقها."
+    },
+    "highlights": [
+      {
+        "title": {
+          "en": "JWT authentication",
+          "ar": "مصادقة JWT"
+        },
+        "text": {
+          "en": "Token-based login that returns the user and the pages they may open.",
+          "ar": "تسجيل دخول بالتوكن يعيد المستخدم والصفحات المسموح له بفتحها."
+        }
+      },
+      {
+        "title": {
+          "en": "Roles created in the app",
+          "ar": "أدوار تُنشأ من داخل التطبيق"
+        },
+        "text": {
+          "en": "Admins define roles and page permissions without code changes.",
+          "ar": "يحدّد المدير الأدوار وصلاحيات الصفحات دون تغيير في الكود."
+        }
+      },
+      {
+        "title": {
+          "en": "Documented endpoints",
+          "ar": "مسارات موثّقة"
+        },
+        "text": {
+          "en": "Swagger docs for every endpoint.",
+          "ar": "توثيق Swagger لكل مسار."
+        }
+      }
+    ],
     "features": [
-      { "en": "Roles created inside the app", "ar": "أدوار تُنشأ من داخل التطبيق" },
-      { "en": "Swagger docs for every endpoint", "ar": "توثيق Swagger لكل مسار" }
+      {
+        "en": "Roles created inside the app",
+        "ar": "أدوار تُنشأ من داخل التطبيق"
+      },
+      {
+        "en": "Swagger docs for every endpoint",
+        "ar": "توثيق Swagger لكل مسار"
+      }
     ],
     "stack": [".NET 10 Web API", "JWT", "Swagger"],
+    "screenshots": [],
+    "video": "",
     "liveUrl": "",
     "repoUrl": ""
   }

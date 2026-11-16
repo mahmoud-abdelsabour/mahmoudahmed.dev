@@ -7,13 +7,22 @@ import Button from '@/components/ui/Button'
 import { Frame, ProjectMock, type MockKind } from '@/components/ui/Mock'
 import { Section, SectionHead, cardCls, liftCls } from '@/components/ui/Section'
 import projects from '@/data/projects.json'
-import repos from '@/data/repos.sample.json'
 import { useLang } from '@/hooks/useLang'
+import { trackEvent } from '@/lib/analytics'
+import { useRepos } from '@/lib/github'
 import { loc } from '@/lib/localize'
 import { site } from '@/lib/site'
 
 type Project = (typeof projects)[number]
 type Filter = 'all' | 'web' | 'dash' | 'api'
+function ago(iso: string, lang: string) {
+  const days = Math.round((new Date(iso).getTime() - Date.now()) / 86_400_000)
+  const rtf = new Intl.RelativeTimeFormat(lang, { numeric: 'auto' })
+  if (Math.abs(days) < 30) return rtf.format(days, 'day')
+  if (Math.abs(days) < 365) return rtf.format(Math.round(days / 30), 'month')
+  return rtf.format(Math.round(days / 365), 'year')
+}
+
 const filters: Filter[] = ['all', 'web', 'dash', 'api']
 
 function Tags({ items }: { items: string[] }) {
@@ -51,6 +60,7 @@ function CaseLink({ slug }: { slug: string }) {
   return (
     <Link
       to={`${base}/projects/${slug}`}
+      onClick={() => trackEvent('project_open', { slug })}
       className="inline-flex min-h-11 items-center gap-1.5 text-[15px] font-semibold text-acc no-underline hover:text-acch"
     >
       {t('projects.case')}
@@ -165,6 +175,8 @@ function Card({ p }: { p: Project }) {
 
 export default function Projects() {
   const { t } = useTranslation('home')
+  const { i18n } = useTranslation()
+  const { repos, live } = useRepos()
   const [filter, setFilter] = useState<Filter>('all')
   const count = (f: Filter) =>
     f === 'all' ? projects.length : projects.filter((p) => p.category === f).length
@@ -207,7 +219,7 @@ export default function Projects() {
         <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
           <div>
             <h3 className="text-xl">{t('projects.github')}</h3>
-            <p className="text-[13px] text-tm">{t('projects.githubNote')}</p>
+            {!live && <p className="text-[13px] text-tm">{t('projects.githubNote')}</p>}
           </div>
           <Button href={site.socials.github} variant="ghost" size="sm">
             {t('projects.viewAll')}
@@ -218,7 +230,7 @@ export default function Projects() {
           {repos.map((r) => (
             <li key={r.name}>
               <a
-                href={`${site.socials.github}/${r.name}`}
+                href={r.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${cardCls} ${liftCls} flex h-full flex-col gap-2.5 p-[18px] text-tp no-underline hover:text-tp`}
@@ -231,9 +243,27 @@ export default function Projects() {
                   {r.name}
                 </span>
                 <span className="text-sm text-ts">{r.description}</span>
-                <span className="mt-auto flex items-center gap-1.5 pt-1 text-[13px] text-tm">
-                  <i className="size-2.5 rounded-full" style={{ background: r.color }} />
-                  <bdi>{r.language}</bdi>
+                <span className="mt-auto flex flex-wrap items-center gap-x-3.5 gap-y-1 pt-1 text-[13px] text-tm">
+                  {r.language && (
+                    <span className="inline-flex items-center gap-1.5">
+                      <i
+                        className="size-2.5 rounded-full"
+                        style={{ background: r.color }}
+                      />
+                      <bdi>{r.language}</bdi>
+                    </span>
+                  )}
+                  {!!r.stars && (
+                    <span className="inline-flex items-center gap-1">
+                      <Star size={13} />
+                      {r.stars}
+                    </span>
+                  )}
+                  {r.pushedAt && (
+                    <span>
+                      {t('projects.updated', { when: ago(r.pushedAt, i18n.language) })}
+                    </span>
+                  )}
                 </span>
               </a>
             </li>
